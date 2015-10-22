@@ -1,0 +1,4 @@
+/* Title module CSS */
+.oo_title_container{position: absolute;left: 0; top:0; height: 100px;width: 100%;color: white;background-color:rgba(0, 0, 0, 0.8);line-height: 1}
+.oo_video_title{font-size: 25px;font-family: Arial;margin:10px}
+.oo_video_description{font-size: 15px;font-family: Arial;margin:10px}

@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Ooyala Samples</title>
+	<link rel="stylesheet" href="css/foundation.css" />
+	<link rel="stylesheet" href="css/motion-ui.css" />
+  <link rel="stylesheet" href="css/dell.css" />
+	<script src="js/vendor/modernizr.js"></script>
+</head>
+
+<body>
+<div style="background: #0083c5 ">
+	<div class="row">
+		<div class="columns medium-12">
+			<h1 id="test" style="color:white">Video Technology DEMOS</h1>
+  	</div>  
+	</div>
+</div>
+<nav class="top-bar" data-topbar role="navigation">
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="demos.html"><img src="css/dell-logo-white-32.png" alt="Dell"/></a></h1>
+    </li>
+     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <li class="active"><a href="#">Index</a></li>
+      <li class="has-dropdown">
+        <a href="#">Demos</a>
+        <ul class="dropdown">
+          <li><a href="ooyala-basic.html">Basic Ooyala Video Player</a></li>
+          <li><a href="ooyala-cta.html">Ooyala Video Player with custom call-to-action</a></li>
+          <li><a href="ooyala-captions.html">Ooyala Video Player with custom closed captions</a></li>
+          <li><a href="ooyala-playlist.html">Ooyala Video Player with Ooyala Playlist</a></li>
+          <li><a href="ooyala-playlist-cta-cc.html">Ooyala kitchen sink</a></li>
+        </ul>
+      </li>
+    </ul>
+
+    <!-- Left Nav Section -->
+    <ul class="left">
+      <!--<li><a href="#">Left Nav Button</a></li>-->
+    </ul>
+  </section>
+</nav>
+<div class="row"><div class="columns medium-12">&nbsp;</div></div>
+
+<div class="row" data-equalizer>
+	<div class="columns medium-12">
+		<ul class="small-block-grid-3">
+      <li>
+      	<div class="panel text-center" data-equalizer-watch>
+        	<a href="ooyala-basic.html">Basic Ooyala Video Player</a>
+        </div>
+      </li>
+      <li>
+      	<div class="panel text-center" data-equalizer-watch>
+        	<a href="ooyala-cta.html">Ooyala Video Player with custom call-to-action</a>
+        </div>
+      </li>
+      <li>
+      	<div class="panel text-center" data-equalizer-watch>
+        	<a href="ooyala-captions.html">Ooyala Video Player with custom closed captions</a>
+        </div>
+      </li>
+  	</ul>
+  </div>
+</div> 
+<div class="row" data-equalizer>
+	<div class="columns medium-12">   
+    <ul class="small-block-grid-3">
+      <li>
+      	<div class="panel text-center" data-equalizer-watch>
+        	<a href="ooyala-playlist.html">Ooyala Video Player with Ooyala Playlist</a>
+        </div>
+      </li>
+      <li>
+      	<div class="panel text-center callout" data-equalizer-watch>
+        	<a href="ooyala-playlist-cta-cc.html">Ooyala kitchen sink</a>
+        </div>
+      </li>
+      <li>
+      	<div class="panel text-center" data-equalizer-watch>
+        	
+        </div>
+      </li>
+  	</ul>
+	</div>
+</div>
+<script src="js/vendor/jquery.js"></script>
+<script src="js/vendor/motion-ui.js"></script>
+<script src="js/foundation.min.js"></script>
+<script>
+	$(document).foundation();
+	MotionUI.animateIn( "#test", "fadeIn" );
+</script>
+</body>
+</html>

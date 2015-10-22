@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ooyala Video Player with Playlist + CTA + Closed Captions</title>
+  <link rel="stylesheet" href="css/foundation.css" /> 
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <script src="js/vendor/modernizr.js"></script>
+  <link href="css/captions-plugin.css" rel="stylesheet" type="text/css" />
+  <link href="css/share-plugin.css" rel="stylesheet" type="text/css" />
+  <link href="css/title-plugin.css" rel="stylesheet" type="text/css" />
+  <link href="css/cta-plugin.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <div style="background: #0083c5 ">
+    <div class="row">
+      <div class="columns medium-12">
+        <h1 id="test" style="color:white">Video Technology DEMOS</h1>
+      </div>  
+    </div>
+  </div>
+  <nav class="top-bar" data-topbar role="navigation" style="z-index:12000">
+    <ul class="title-area">
+      <li class="name">
+        <h1><a href="demos.html"><img src="css/dell-logo-white-32.png" alt="Dell"/></a></h1>
+      </li>
+       <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+  
+    <section class="top-bar-section">
+      <!-- Right Nav Section -->
+      <ul class="right">
+        <li class="active"><a href="#">Ooyala kitchen sink</a></li>
+        <li class="has-dropdown">
+          <a href="#">Demos</a>
+          <ul class="dropdown">
+            <li><a href="ooyala-basic.html">Basic Ooyala Video Player</a></li>
+            <li><a href="ooyala-cta.html">Ooyala Video Player with custom call-to-action</a></li>
+            <li><a href="ooyala-captions.html">Ooyala Video Player with custom closed captions</a></li>
+            <li><a href="ooyala-playlist.html">Ooyala Video Player with Ooyala Playlist</a></li>
+            <li class="active"><a href="ooyala-playlist-cta-cc.html">Ooyala kitchen sink</a></li>
+          </ul>
+        </li>
+      </ul>
+  
+      <!-- Left Nav Section -->
+      <ul class="left">
+        <!--<li><a href="#">Left Nav Button</a></li>-->
+      </ul>
+    </section>
+  </nav>
+  
+  <div class="row">
+  	<div class="columns medium-12 ">&nbsp;</div>
+  </div>
+  
+	<div class="row collapse">	
+    <div class="medium-8 columns">
+     	<div id="ooyalaplayer1" style="width:640px"></div>
+    </div>
+    <div class="medium-4 columns">
+    	<div class="row">	
+        <div class="medium-12 columns">
+          This player implementation demostrates a number of enahancements, including Omniture tracking, HTML5 closed captions, CTA button and Ooyala Playlist.<br><br>  
+        </div>
+      </div>
+      
+      <div class="row">	
+        <div class="medium-12 columns">
+          PLAYER CSS: <strong>player.css</strong> <a class="button secondary tiny" title="Take a look" target="_blank" href="player.css">Player CSS</a>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="medium-12 columns">  
+          PLUGINS: <strong>Omniture, Closed Captions, CTA</strong><br><br>
+        </div>  
+      </div>
+      
+      <div class="row">  
+        <div class="medium-12 columns">  
+          PLUGIN JS file(s): <strong>dellplugin.js</strong> <a class="button secondary tiny" title="Take a look at the plugin js" target="_blank" href="plugins/dellplugin.js">Plugin JS</a>
+        </div>  
+      </div>
+      
+      <div class="row">
+        <div class="medium-12 columns">  
+          PLUGIN CSS files(s): <strong>captions-plugin.css, cta-plugin.css</strong> <a class="button secondary tiny" title="Take a look at the captions CSS" target="_blank" href="css/captions-plugin.css">Captions CSS</a> <a class="button secondary tiny" title="Take a look at the CTA CSS" target="_blank" href="css/cta-plugin.css">CTA CSS</a>
+        </div>
+     	</div>
+      
+      <div class="row">   
+        <div class="medium-12 columns">  
+          EVENT HANDLING in main file:<br> 
+          <strong>PLAYBACK_READY</strong><br>
+          <strong>SIZE_CHANGED</strong><br>
+          <strong>EMBED_CODE_CHANGED</strong><br> 
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="row">   
+    <div class="medium-12 columns">
+    	<h3>Where does the data come from?</h3>
+      <p><strong>Omniture</strong>: The events use the Ooyala embedcode/video id and the LWP.  No other data is stored.</p>
+    	<p><strong>Closed captions</strong>: Closed captions are stored at Ooyala. DXFP (XML) files are uploaded to Ooyala.</p>
+      <p><strong>CTA</strong>: The data is stored as Custom Metadata at Ooyala. This solution requires manual update of key/value pairs.</p>
+  	</div>      
+  </div>      
+  <script src="plugins/dellplugin-min.js" type="text/javascript"></script>
+  <!-- 
+  	Instantiate the Ooyala video player code 
+  	@params	playerId				CMS field ""
+    @params playerNamespace	The unique Ooyala video object handle.  This enables multiple videos to be controlled individually. This is generated programatically(?)
+    @example //player.ooyala.com/v3/{playerId}?platform=html5-priority&namespace={playerNamespace}
+  -->
+	<script src="//player.ooyala.com/v3/ZGJiMzI3NjIwMDUxN2I5YjVkMGUzMDAx?platform=html5-priority&namespace=Player1"></script>
+  <script>  
+  /*=======================================================================
+			Input values from the CMS video article
+			@param	videoTitle				CMS field "Title" 	
+			@param	videoDuration			CMS field "mediaDuration" (in seconds)
+			@param	videoDescription	CMS	field "Comments" 
+			@param	videoAbstract			CMS field "DellAbstract" - overrides Comments
+			@param	videoThumbnail		CMS field "RollupImage"
+		========================================================================*/
+		var videoTitle = "This is the title of the first video";
+		var videoDuration = 90;
+		var videoDescription = "This is the description of the first video.";
+		var videoAbstract = "This is an abstract that might have HTML."; 
+		var videoThumbnail = "";
+		
+		/*=====================================================================
+			** DEMO inputs **
+			Input values from the "page"
+			@param	pageLocale	Essentially LWP (language, country, segment)
+		=====================================================================*/
+		var embedCode = "9iNWdzdDqzGfIgq_mR0w7Tl_ZWVKBCVQ";
+		var pageLocale = { "language": "en", "country": "uk", "segment": "dhs" };
+		var playerlocale = pageLocale.language + "_" + pageLocale.country;
+		var omnitureQuerystring = "c=" + pageLocale.country + "&l=" + pageLocale.language + "&s=" + pageLocale.segment ;
+		var playerCSSURL = "../test/css/player.css";
+		var autoPlay = false;
+		var initialTime = 0;
+		var playerLoop = false;
+		var useFirstVideoPlayList = true;
+		var playlistid = "dee1cb98a77149ea82978ac12e0122bb";
+		// ========================================================================================================
+		// VIDEO #1
+		// ========================================================================================================
+		
+		// Ready handler for video #1 using "Player1" namespace (vs. default OO)
+		// {namespace}.ready( function() {...
+    Player1.ready(function() { 
+			// create the playerConfiguration object for convenience
+			// @param	width									STRING		CONST	Always set to "100%".
+			// @param	height								STRING		CONST	Always set to "100%".
+			// @param	wmode									STRING		CONST	Always set to "transparent" (for Flash playback).
+			// @param 	autoplay							BOOLEAN					Default to false.  Can be set either by page-level policy OR by querystring param.
+			// @param	enableChannels				BOOLEAN		CONST	Always set to true.  This is a legacy parameter for OoyalaChannel.
+			// @param	initialTime						INT							Defaults to 0.  Can be set by querystring param allowing direct seek into a video.
+			// @param	locale								STRING					Set as "{language code}_{country code}".  Determines player chrome text for Flash player (and HTML5 player in future state)
+			// @param	loop									BOOLEAN					Defaults to false.  Can be set by querystring param allowing for continuous looping.
+			// @param	flashParams						STRING					Sets legacy parameters for Omniture integration when rendered for Flash.
+			// @param	prebuffering					BOOLEAN		CONST	Always set to false.
+			// @param	useFirstVideoPlayList	BOOLEAN					Defaults to false.  Can be set either by page-level policy OR by querystring param.
+			// @param	css										STRING		CONST	URL for the player CSS.
+			// @param	onCreate							FUNCTION				
+      var playerConfiguration = {
+				playlistsPlugin: {"data":[ playlistid ]},
+        width: "100%",
+        height: "100%",
+        wmode: 'transparent',
+        autoplay: autoPlay,
+        enableChannels: true,
+        initialTime: initialTime,
+        locale: playerlocale,
+        loop: playerLoop,
+        flashParams: {
+          "thruParam_omniture-dell-other[prop49]": omnitureQuerystring
+        },
+        prebuffering: false,
+        useFirstVideoPlaylist: useFirstVideoPlayList,
+        css: playerCSSURL,
+        onCreate: function( player )
+        {
+			   // set the resize handler
+					player.mb.subscribe( Player1.EVENTS.SIZE_CHANGED, "page", function( eventName ){ 
+						resizeVideo( player ); 
+					});
+					
+					// detect the change in video
+					player.mb.subscribe( Player1.EVENTS.EMBED_CODE_CHANGED, "page", function ( eventName, embedCode, playerConfigurationObject ) {
+						// if the playerConfigurationObject is undefined, this new video is from a secondary source (e.g. playlist)
+						if( typeof( playerConfigurationObject ) === "undefined" )
+						{
+							player.play();
+						}
+					});
+					player.mb.subscribe( Player1.EVENTS.PLAYBACK_READY, "page", function ( eventName, playerObject ) {
+						// force a resize
+						player.mb.publish( Player1.EVENTS.SIZE_CHANGED );
+					});
+        }
+      }
+			// Create player #1
+      Player1.Player.create( 'ooyalaplayer1', embedCode, playerConfiguration );
+    });
+		
+		// ========================================================================================================
+		// Try to load plugins 
+		// ========================================================================================================
+		var plugOb = {};
+		try
+		{
+			// init the modules per player 
+			plugOb = new dellModule();
+			// set the lwp
+			plugOb.setLWP( pageLocale );
+			// associate this player {namespace}
+			plugOb.init( ["Player1"] );
+		}
+		catch( e )
+		{
+			console.log( "Dell video module could not be instantiated." )
+		}
+			
+		if( Object.keys( plugOb ).length > 0 )
+		{
+			try
+			{
+				// load the Omniture module
+				plugOb.loadOmnitureModule();
+			}
+			catch(e)
+			{
+				console.log( "Video Omniture module did not load." );		
+			}
+			
+			try
+			{
+				// load the Closed Caption module
+				plugOb.loadCCModule();
+			}
+			catch(e)
+			{
+				console.log( "Video Closed Caption module did not load." );		
+			}
+	
+			try
+			{
+				plugOb.loadCTAModule();
+			}
+			catch( e )
+			{
+				console.log( "CTA module did not load." );		
+			}
+		}
+		
+		// resize video
+		function resizeVideo( obj ) 
+		{
+			var div = $( "#" + obj.elementId );
+			var _oWidth = $( div ).width();
+			var _hasPlaylist = ( div ).find( ".oo-playlists-thumbnails" );
+			if( _hasPlaylist.length > 0 )
+			{
+				var _newHeight = ( _oWidth * 9 / 16 ) + 83;
+			}
+			else
+			{
+				var _newHeight = _oWidth * 9 / 16;
+			}
+			$( div ).height( _newHeight );
+		}
+  </script>
+  <!-- Begin OMNITURE CODE for simulation -->
+  <div id="omniturescript">
+	<script language="JavaScript" type="text/javascript" src="plugins/s_code_third_party_2013_03_25_v27.js"></script>
+	<script language="JavaScript" type="text/javascript"> 
+		/* You may give each page an identifying name, server, and channel on the next lines. */     
+		s_dell.pageName="";   
+		s_dell.events="";
+		s_dell.prop29="3rd party sites";
+		s_dell.prop49="c=" + pageLocale.country + "&l=" + pageLocale.language + "&s=" + pageLocale.segment;
+		/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/   
+		var s_code=s_dell.t();if(s_code)document.write(s_code);
+	</script>
+	</div>
+	<!-- End OMNITURE CODE for simulation -->
+  
+  <!-- Begin FRAMEWORK CODE -->
+	<script src="js/vendor/jquery.js"></script>
+  <script src="js/foundation.min.js"></script>
+  <script>
+  	$(document).foundation();
+	</script>
+  <!-- End FRAMEWORK CODE -->
+  
+  <div id="debug"></div>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Ooyala video playist test</title>
+</head>
+<body>
+<div id="ooyalaplayer1" style="width:800px"></div>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script> 
+<script>
+	var embedCode = "Joa2NhdzqR_ubl8VLsoy4GmedrQoVgCw";
+	var playerCSSURL = "player.css";
+	var autoPlay = false;
+	var initialTime = 0;
+	var playerLoop = false;
+	var useFirstVideoPlayList = false;
+
+	$(document).ready(function(e) {
+		$.ajax({
+			url: 'http://player.ooyala.com/v3/ZWY2ZDc5MWM0YWQ1MTY5MzY4MGIwZWEx?platform=html5-priority&namespace=Player1',
+			dataType: 'script',
+			cache: true, // otherwise will get fresh copy every page load
+			success: function() {
+				Player1.ready(function() { 
+					var playerConfiguration = {
+						playlistsPlugin: {"data":[""]},
+						width: "100%",
+						height: "100%",
+						wmode: 'transparent',
+						autoplay: autoPlay,
+						enableChannels: true,
+						initialTime: initialTime,
+						locale: "en-us",
+						loop: playerLoop,
+						prebuffering: false,
+						useFirstVideoPlaylist: useFirstVideoPlayList,
+						css: playerCSSURL,
+						onCreate: function( player )
+						{
+							player.mb.subscribe( Player1.EVENTS.SIZE_CHANGED, "page", function( eventName ){ 
+								resizeVideo( player ); 
+							});
+							// force a resize
+							player.mb.publish( Player1.EVENTS.SIZE_CHANGED );
+							player.mb.subscribe( Player1.EVENTS.EMBED_CODE_CHANGED, "page", function ( eventName, embedCode, playerConfigurationObject ) {
+								if( typeof( playerConfigurationObject ) === "undefined" )
+								{
+									player.play();
+								}
+							});
+						}
+					}
+					Player1.Player.create( 'ooyalaplayer1', embedCode, playerConfiguration );
+				});	
+			}
+		});
+		
+	});
+	
+	// resize video
+	function resizeVideo( obj ) 
+	{
+		var div = $( "#" + obj.elementId );
+		var _oWidth = $( div ).width();
+		var _hasPlaylist = ( div ).find( ".oo-playlists-thumbnails" );
+		if( _hasPlaylist.length > 0 )
+		{
+			var _newHeight = ( _oWidth * 9 / 16 ) + 83;
+		}
+		else
+		{
+			var _newHeight = _oWidth * 9 / 16;
+		}
+		$( div ).height( _newHeight );
+	}
+	</script> 
+</body>
+</html>

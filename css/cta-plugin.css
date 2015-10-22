@@ -1,0 +1,59 @@
+.oo_cta_container
+{
+	position: absolute;
+	/*width: auto;
+	height: auto;*/
+	/*display:none;*/
+	visibility:hidden;
+	z-index:10006;
+	top:0px;
+	right:0px;
+}
+.oo_cta_button
+{
+	/*position:absolute;
+	top:0px;
+	right:0px;*/
+	min-width: 120px;
+	background-color: #6EA204;
+	color: white;
+	padding: 15px 10px;
+	text-align:center;
+	font-size: 1.25em !important;
+	font-family:  "Trebuchet MS", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight:bold;
+	cursor: pointer;
+	margin: 15px;
+	display:inline-block;
+}
+
+.oo_cta_button a
+{
+	text-decoration: none;
+	color: white;
+	cursor: pointer;
+}
+.oo_cta_button a:hover
+{
+	
+}
+
+.primary
+{
+	-moz-opacity: 0.8;
+	-webkit-opacity: 0.8;
+	opacity: 0.8;
+	background-color: #00447c !important;
+	color: white !important;
+}
+
+.purchase
+{
+	background-color: #408001 !important;
+}
+
+.secondary
+{
+	background-color: #dadada !important;
+	color: #737373 !important;
+}

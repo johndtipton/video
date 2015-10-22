@@ -1,0 +1,9 @@
+/* Social Share module CSS */
+.oo_share_container{position: absolute;left: 0; top:0; height: 45px;width: 135px;z-index:999999}
+.oo_sms{width:30px;height:30px;display:inline-block;float:left;text-indent:-9999px;margin:5px;background:url('social_icons.png') no-repeat}
+.oo_fb_share {background-position:0 -180px}
+.oo_fb_share:hover {background-position: -30px -180px}
+.oo_tw_share {background-position: 0 0}
+.oo_tw_share:hover {background-position: -30px 0}
+.oo_embed_share {background-position:0 -90px}
+.oo_embed_share:hover {background-position:-30px -90px}

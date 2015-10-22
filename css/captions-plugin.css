@@ -1,0 +1,59 @@
+/* Closed Caption CSS */
+.captionsContainer { position:absolute;top:0px;color:white;width:100%;height:auto;font-family:Arial,sans; text-align:center }
+.caption { position:absolute;text-align:center;width:100%;height:auto;background: #000; opacity:0.75;-moz-opacity:0.75;-webkit-opacity:0.75; font-size: 14px !important;}
+.oo_cc { position:absolute; right: 40px;background-image: url(cc_icon.png);cursor:pointer;background-color: transparent;}
+.ccLanguage { font-size: 14px !important;cursor:pointer; margin: 5px; padding: 5px; width: 31%; float: left; text-align: center; border-radius: 3px; background-color: #0085c3; color: rgb(230,230,230); }
+.videoLanguagePopup { position: absolute; z-index: 11000; right: 0px; left: 0px; border-radius: 3px; padding: 10px; border: 1px solid rgba(255, 255, 255, 0.9); height: 250px; bottom: 50px; overflow-y: auto; overflow-x: hidden;display: block; background-color: rgba( 255, 255, 255, 1 ); }
+.ooyala-caption { font-weight: 400; color: #39c; padding: 5px 10px 5px 10px; margin: 10px; border: 1px #39c solid; }
+.ooyala-caption.disabled { color: rgb(200,200,200); border: 1px gray solid; }
+.onoff-button { width:32px;height:32px; cursor:pointer; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABmJLR0QAAAAAAAD5Q7t/AAAACXBIWXMAAAsSAAALEgHS3X78AAADuklEQVRYw7VXz09TWRT+3n0goBXbUJRnDJCym5gMY8BMyCwIElIbDENmwcw/wIa6ajJx4cLZwcbFsCDRhSwkwoIFkJLJxAUTNBMK1aJSRguZaabyaAULbSrU2ndc0BKo915eFU9yF+/cc77vuz/evecqRPQawGmIbb/P5/Mtjo+Px+bm5rC0tHQmnU6fIaKSkpKSbYfDEW9qaso6nc7T3d3d3wNQcmlJCXYSZMIGBgYCtbW1zwCQmWa1WkO9vb0+XdczR2GDiBKizpGRkfmysrJ/zRJz2ju32z0j4U8IBbS3t898AfGhpmnawubmZty0AE3T5o+LPN9UVdVDodD/hQIUIkoc3Giapj1ZX1+/BLmtAfgPgA4gA6AGQC0AhyyJMbYRi8XUqqoq28FNuD8DbW1tfx0xEi+AHwGoAo7LAO7KMCoqKkIHZmALRLRNROT1ehcliW8A/ATz9h2ARyK8jo6O/MZMgYgyRESMsTeChDCACxwSKwAPgJsAREv2QCQiHA4n8r8hDQ4OvhAEvgVwlgN8HkCkIPaKQMQsD7uxsfHpvoDq6up/BAKuCkAHOLHzgtiT2DsNebOwgkAgIDrhHknW+B4n/rkk3sPjcLvdf7Dh4WFdkHRLAviO43svib/Dc05OTp5kfr+f1xcF8BDFGUn6kgCmC526rp9nwWDQxkl4VSS5Gfuz0JHNZivZzs4OT4BuArBYSxQ6iKiCgX+qZb6CAN4SKay0tHSb03HuKwgo/4RdUdKsrq5ugxPsMAFYrDVxBCRZc3OzIRDwzTGSMwA9hU6r1RplXV1donrwhgTwBMdXKom/BsBS6GxtbY2DiD6Ul5cXnusE4AOABgEg78oNSgQsc+JpdnbWDyKivr6+BfCP42cCwB84saIZ+52HbbfbX+YvIyMej2cBZAUi7guAfwbgw94d8Jsg5roAk6anp1cPVcUej0dWDT1E8b/mbRFeTU3NQq4g2d2viIiI7HZ7QCLiLYBfAdRJSC0AfgGwIMFJr62txfIl2aGiNJVKpSorK3cNw6g6YnReAI8BxHKgNgAXAXQCsMsSp6amFjs7O7/NfSY/KctDoVBEVdXXkhF8duvv739s6l0QjUY3LRZL8LiIFUVJjI2N+Yt6GRERuVyuGQDGl5A3NDT8vbKyEpE9zaS2vLy81dLS4sPeDWmauL6+fnF0dPTlUfgKyZ/nDMApAFhdXX01NDQUnpiYOBGJRM5mMhmbYRgWAFAUZVdV1S2bzbbhcrkSPT09VqfTeTmHkYa4XEt+BNcXIU9NS8MtAAAAAElFTkSuQmCC');
+}
+.on{ background-color:#72b237; }
+.off{ background-color: #ccc } 
+/* full controls */
+.oo_full_controls .oo_duration
+{
+	line-height: 10px !important;
+	color: rgb(255, 255, 255) !important;
+	-moz-user-select: none !important;
+	user-select: none !important;
+	cursor: default !important;
+	text-align: center !important;
+	right: 5px !important;
+}
+
+
+.oo_full_controls .oo_scrubber 
+{
+	left: 85px !important;
+	right: 90px !important;
+	top: 9px !important;
+	bottom: 10px !important;
+}
+/*.oo_full_controls .oo_scrubber_track 
+{
+	left: 45px !important;
+	right: 50px !important;
+}
+
+.oo_full_controls .oo_progress .oo_buffer_progress
+{
+	width: 200px !important;
+}*/
+/*	
+.oo_mini_controls .oo_scrubber 
+{
+	left: 0px !important;
+	right: 100px !important;
+	top: 0px !important;
+	bottom: 10px !important;
+}*/
+.oo_mini_controls .oo_duration
+{
+	top: 1px !important;
+  font-size: 10px !important;
+  width: 40px !important;
+}
+.oo_mini_controls .oo_cc { position:absolute; right: 20px;background-image: url(cc_icon.png);cursor:pointer;background-color: transparent;}
+.oo_mini_controls .videoLanguagePopup { position: absolute; z-index: 11000; right: 0px; left: 0px; border-radius: 3px; padding: 5px; border: 1px solid rgba(255, 255, 255, 0.9); height: 125px; bottom: 40px; overflow-y: auto; overflow-x: hidden; display: block; background-color: rgba( 255, 255, 255, 1 ); }
+ .oo_mini_controls .ccLanguage { font-size: 10px; font-size: 3vw;cursor:pointer; margin: 5px; padding: 5px; width: 45%; float: left; text-align: center; border-radius: 3px; background-color: #0085c3; color: rgb(230,230,230); }

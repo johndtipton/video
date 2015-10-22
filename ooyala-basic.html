@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basic Ooyala Video Player</title>
+  <link rel="stylesheet" href="css/foundation.css" /> 
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <script src="js/vendor/modernizr.js"></script>
+  <link href="css/captions-plugin.css" rel="stylesheet" type="text/css" />
+  <link href="css/share-plugin.css" rel="stylesheet" type="text/css" />
+  <link href="css/title-plugin.css" rel="stylesheet" type="text/css" />
+  <link href="css/cta-plugin.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <div style="background: #0083c5 ">
+    <div class="row">
+      <div class="columns medium-12">
+        <h1 id="test" style="color:white">Video Technology DEMOS</h1>
+      </div>  
+    </div>
+  </div>
+  <nav class="top-bar" data-topbar role="navigation" style="z-index:12000">
+    <ul class="title-area">
+      <li class="name">
+        <h1><a href="demos.html"><img src="css/dell-logo-white-32.png" alt="Dell"/></a></h1>
+      </li>
+       <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+  
+    <section class="top-bar-section">
+      <!-- Right Nav Section -->
+      <ul class="right">
+        <li class="active"><a href="#">Basic Ooyala Player</a></li>
+        <li class="has-dropdown">
+          <a href="#">Demos</a>
+          <ul class="dropdown">
+            <li class="active"><a href="ooyala-basic.html">Basic Ooyala Video Player</a></li>
+            <li><a href="ooyala-cta.html">Ooyala Video Player with custom call-to-action</a></li>
+            <li><a href="ooyala-captions.html">Ooyala Video Player with custom closed captions</a></li>
+            <li><a href="ooyala-playlist.html">Ooyala Video Player with Ooyala Playlist</a></li>
+            <li><a href="ooyala-playlist-cta-cc.html">Ooyala kitchen sink</a></li>
+          </ul>
+        </li>
+      </ul>
+  
+      <!-- Left Nav Section -->
+      <ul class="left">
+        <!--<li><a href="#">Left Nav Button</a></li>-->
+      </ul>
+    </section>
+  </nav>
+  
+  <div class="row">
+  	<div class="columns medium-12 ">&nbsp;</div>
+  </div>
+  
+	<div class="row collapse">	
+    <div class="medium-8 columns">
+     	<div id="ooyalaplayer1" style="width:640px"></div>
+    </div>
+    <div class="medium-4 columns">
+    	<div class="row">	
+        <div class="medium-12 columns">
+          This shows the standard player configuration and standard player CSS.  The minimal amount of event handling to ensure responsiveness has been implemented.<br><br>
+        </div>
+      </div>
+      
+      <div class="row">	
+        <div class="medium-12 columns">
+          PLAYER CSS: <strong>None</strong><br><br>
+        </div>
+      </div>
+      
+      <div class="row">  
+        <div class="medium-12 columns">  
+          PLUGINS: <strong>None</strong><br><br>
+        </div>  
+      </div>
+      
+      <div class="row">  
+        <div class="medium-12 columns">  
+          PLUGIN JS file(s): <strong>None</strong><br><br>
+        </div>  
+      </div>
+      
+      <div class="row">  
+        <div class="medium-12 columns">  
+          PLUGIN CSS files(s): <strong>None</strong><br><br>
+        </div>
+      </div>
+      
+      <div class="row">  
+        <div class="medium-12 columns">  
+          EVENT HANDLING:<br> 
+          <strong>PLAYBACK_READY</strong><br>
+          <strong>SIZE_CHANGED</strong> 
+        </div>
+      </div>
+    
+    </div>
+  </div>
+  
+	<script src="//player.ooyala.com/v3/ZGJiMzI3NjIwMDUxN2I5YjVkMGUzMDAx?platform=html5-priority&namespace=Player1"></script>
+  <script>  
+		var embedCode = "9iNWdzdDqzGfIgq_mR0w7Tl_ZWVKBCVQ";
+		var pageLocale = { "language": "en", "country": "uk", "segment": "dhs" };
+		var playerlocale = pageLocale.language + "_" + pageLocale.country;
+		var omnitureQuerystring = "c=" + pageLocale.country + "&l=" + pageLocale.language + "&s=" + pageLocale.segment ;
+		var autoPlay = false;
+		var initialTime = 0;
+		var playerLoop = false;
+    Player1.ready(function() { 
+      var playerConfiguration = {
+        width: "100%",
+        height: "100%",
+        wmode: 'transparent',
+        autoplay: autoPlay,
+        enableChannels: true,
+        initialTime: initialTime,
+        locale: playerlocale,
+        loop: playerLoop,
+        flashParams: {
+          "thruParam_omniture-dell-other[prop49]": omnitureQuerystring
+        },
+        prebuffering: false,
+        onCreate: function( player )
+        {
+			   // set the resize handler
+					player.mb.subscribe( Player1.EVENTS.SIZE_CHANGED, "page", function( eventName ){ 
+						resizeVideo( player ); 
+					});
+					player.mb.subscribe( Player1.EVENTS.PLAYBACK_READY, "page", function ( eventName, playerObject ) {
+						// force a resize
+						player.mb.publish( Player1.EVENTS.SIZE_CHANGED );
+					});
+        }
+      }
+			// Create player #1
+      Player1.Player.create( 'ooyalaplayer1', embedCode, playerConfiguration );
+    });
+		
+		// resize video
+		function resizeVideo( obj ) 
+		{
+			// debug
+			console.log( "Resizing video " + obj.elementId );
+			var div = $( "#" + obj.elementId );
+			var _oWidth = $( div ).width();
+			var _hasPlaylist = ( div ).find( ".oo-playlists-thumbnails" );
+			if( _hasPlaylist.length > 0 )
+			{
+				var _newHeight = ( _oWidth * 9 / 16 ) + 83;
+			}
+			else
+			{
+				var _newHeight = _oWidth * 9 / 16;
+			}
+			//$("#debug").text( _oWidth + " by " + _newHeight );
+			$( div ).height( _newHeight );
+		}
+	</script>
+  <!-- Begin FRAMEWORK CODE -->
+	<script src="js/vendor/jquery.js"></script>
+  <script src="js/foundation.min.js"></script>
+  <script>
+  	$(document).foundation();
+	</script>
+  <!-- End FRAMEWORK CODE -->
+  
+  <div id="debug"></div>
+</body>
+</html>
